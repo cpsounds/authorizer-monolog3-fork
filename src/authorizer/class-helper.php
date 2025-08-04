@@ -305,7 +305,7 @@ class Helper {
 			return false;
 		}
 		if ( 'case insensitive' === $case_sensitivity ) {
-			$needle = strtolower( $needle );
+			$needle = strtolower( $needle ?? '' );
 		}
 		foreach ( $haystack as $item ) {
 			if ( 'case insensitive' === $case_sensitivity && ! is_array( $item ) ) {
