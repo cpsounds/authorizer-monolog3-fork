@@ -309,7 +309,7 @@ class Helper {
 		}
 		foreach ( $haystack as $item ) {
 			if ( 'case insensitive' === $case_sensitivity && ! is_array( $item ) ) {
-				$item = strtolower( $item );
+				$item = strtolower( $item ?? '' );
 			}
 			if ( ( 'strict' === $strict_mode ? $item === $needle : $item == $needle ) || ( is_array( $item ) && self::in_multi_array( $needle, $item, $strict_mode, $case_sensitivity ) ) ) { // phpcs:ignore Universal.Operators.StrictComparisons.LooseEqual
 				return true;
@@ -408,7 +408,7 @@ class Helper {
 	 * @return string      Input in lowercase.
 	 */
 	public static function lowercase( $str ) {
-		return function_exists( 'mb_strtolower' ) ? mb_strtolower( $str ) : strtolower( $str );
+		return function_exists( 'mb_strtolower' ) ? mb_strtolower( $str ?? '' ) : strtolower( $str ?? '' );
 	}
 
 
